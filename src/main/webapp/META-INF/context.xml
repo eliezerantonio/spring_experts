@@ -1,2 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context path="/sistema"/>
+<!DOCTYPE xml>
+<Context  path="/sistema">
+    <Resource name="jdbc/sistemaDB" auth="Container" 
+            factory="org.apache.naming.factory.BeanFactory"
+            type="com.mchange.v2.c3p0.ComboPooledDataSource"
+            driverClass="com.mysql.jdbc.Driver"
+            jdbcUrl="jdbc:mysql://localhost/sistema?useSSL=false"
+            user="root"
+            password="1223" 
+            initialPoolSize="5" 
+            minPoolSize="5"
+            maxPoolSize="5" 
+     />
+</Context>
