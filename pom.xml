@@ -43,6 +43,7 @@
 		
         <!-- Spring Data JPA -->
         <spring-data-jpa.version>1.10.2.RELEASE</spring-data-jpa.version>
+        
         <!--flyway -->
         <flyway-maven-plugin.version>4.0.2</flyway-maven-plugin.version>
     </properties>
