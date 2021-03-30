@@ -1,22 +1,25 @@
 package com.stackcode.gestao.controller;
 
+import com.stackcode.gestao.model.Produto;
+import com.stackcode.gestao.repository.Produtos;
 import javax.validation.Valid;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import com.stackcode.gestao.model.Produto;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class ProdutosController {
 
+    @Autowired
+    private Produtos produtos;
+
     @RequestMapping("/produtos/novo")
     public String novo(Produto produto) {
-      
+        produtos.findAll();//apagar
         return "produtos/CadastroProduto";
     }
 
@@ -24,7 +27,7 @@ public class ProdutosController {
     public String cadastrar(@Valid Produto produto, BindingResult result, Model model, RedirectAttributes attributes) {
 
         if (result.hasErrors()) {
-          //casjo haja erro retornar pagina novo
+            //casjo haja erro retornar pagina novo
             return novo(produto);
         }
 
@@ -36,5 +39,5 @@ public class ProdutosController {
 
         return "redirect:/produtos/novo";
     }
-   
+
 }
